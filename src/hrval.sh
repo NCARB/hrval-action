@@ -71,7 +71,7 @@ function download {
 function fetch {
   cd "${1}"
   git init -q
-  git remote add origin "${3}"
+  git remote add origin "${3}".git
   git fetch -q origin
   git checkout -q "${4}"
   cd "${5}"
