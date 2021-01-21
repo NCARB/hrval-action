@@ -99,13 +99,15 @@ function clone {
   if [ -n "${3}" ]; then
     if [[ "${CHART_BASE_URL}" == "${RELEASE_BASE_URL}" ]] && [[ "${GIT_REF}" == "${4}" ]]; then
       # Clone from the head repository branch/ref
+      >&2 echo "fetch (head) ${2} ${2}/${CHART_PATH} ${RELEASE_GIT_REPO} ${3} ${ORIGIN}"
       fetch "${2}" "${2}/${CHART_PATH}" "${RELEASE_GIT_REPO}" "${3}" "${ORIGIN}"
     else
       # Regular clone
-      echo "fetch ${2} ${2}/${CHART_PATH} ${CHART_GIT_REPO} ${GIT_REF} ${ORIGIN}"
+      >&2 echo "fetch (reg) ${2} ${2}/${CHART_PATH} ${CHART_GIT_REPO} ${GIT_REF} ${ORIGIN}"
       fetch "${2}" "${2}/${CHART_PATH}" "${CHART_GIT_REPO}" "${GIT_REF}" "${ORIGIN}"
     fi
   else
+      >&2 echo "fetch (reg) ${2} ${2}/${CHART_PATH} ${CHART_GIT_REPO} ${GIT_REF} ${ORIGIN}"
       fetch "${2}" "${2}/${CHART_PATH}" "${CHART_GIT_REPO}" "${GIT_REF}" "${ORIGIN}"
   fi
 }
