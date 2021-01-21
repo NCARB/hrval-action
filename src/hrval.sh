@@ -102,6 +102,7 @@ function clone {
       fetch "${2}" "${2}/${CHART_PATH}" "${RELEASE_GIT_REPO}" "${3}" "${ORIGIN}"
     else
       # Regular clone
+      echo "fetch ${2} ${2}/${CHART_PATH} ${CHART_GIT_REPO} ${GIT_REF} ${ORIGIN}"
       fetch "${2}" "${2}/${CHART_PATH}" "${CHART_GIT_REPO}" "${GIT_REF}" "${ORIGIN}"
     fi
   else
